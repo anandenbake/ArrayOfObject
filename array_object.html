@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<meta charset="utf-8"/>
+</head>
+<body>
+ 
+     
+
+	     <form id="frm1">
+		  Name:<br>
+		  <input type="text" name="name" id="name" >
+		  <br>
+		  Age:<br>
+		  <input type="text" name="age" id="age" >
+		  <br><br>
+	     <input type="button" id = "btn" value="Submit">
+
+	   </form> 
+           <hr></hr>
+           <hr></hr>
+
+
+    <script>
+	    var students = [
+		       {
+			      name: "Ravi",
+				  age:  22
+			   }, 
+			   {
+			       name: "Alok",
+				   age: 32
+			   },
+			   {
+			        name: "Shiva",
+					age: 19
+			   },
+			   {
+			        name: "Rohit",
+					age: 44
+			   }
+		]
+		   for(i = 0; i < students.length; i++){
+		      document.writeln(students[i].name+ ", "+ students[i].age+"</br></br>")
+		   }
+                       
+
+                     $(document).ready(function(){
+                 	    $("#btn").click(function() {
+                                   var obj = {};
+				   obj.name = $("#name").val();
+			          obj.age = $("#age").val();
+
+                                     students.push(obj);
+
+
+			    });
+                         });   
+
+
+			  var myJsonString = JSON.stringify(students);
+
+				  console.log(myJsonString );
+
+			
+        </script>
+       
+
+ </body>
+</html>
