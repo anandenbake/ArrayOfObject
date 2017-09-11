@@ -19,7 +19,9 @@
 	   </form> 
            <hr></hr>
            <hr></hr>
+         <div id="student">
 
+         </div>
 
     <script>
 	    var students = [
@@ -40,21 +42,30 @@
 					age: 44
 			   }
 		]
+		
+
 		   for(i = 0; i < students.length; i++){
-		      document.writeln(students[i].name+ ", "+ students[i].age+"</br></br>")
+		      $("#student").append( "<br>"+students[i].name+" </br>"+ students[i].age +"</br>");
 		   }
                        
 
                      $(document).ready(function(){
                  	    $("#btn").click(function() {
-                                   var obj = {};
-				   obj.name = $("#name").val();
-			          obj.age = $("#age").val();
 
-                                     students.push(obj);
+                 	    			 $("#student").append( "<br>"+$("#name").val()+" </br>"+ $("#age").val() +"</br>");
+
+									
+                                   	students.push({
+										name: $("#name").val(),
+				  						age:  $("#age").val()
+									});
+                                   
+                                   	var myJsonString2 = JSON.stringify(students);
+
+				  					console.log(myJsonString2 );
 
 
-			    });
+			    			});
                          });   
 
 
